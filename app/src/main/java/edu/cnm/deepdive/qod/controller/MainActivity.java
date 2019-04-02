@@ -52,7 +52,11 @@ public class MainActivity extends AppCompatActivity {
             builder.append(source.getName());
             builder.append("; ");
           }
-          sourceName.setText(builder.substring(0, builder.length() - 2));
+          if (builder.length() > 0) {
+            sourceName.setText(builder.substring(0, builder.length() - 2));
+          }else{
+            sourceName.setText("");
+          }
           fadeTogether(quoteText, sourceName);
         })
         .execute();
