@@ -3,4 +3,6 @@
   <string name="base_url">http://10.46.2.105:8080/rest/qod/</string>
   <string name="client_id">221629418495-s8qhhoimjimmg6u730l1stqk4jqiq9g5.apps.googleusercontent.com</string>
   <string name="sign_in_error">Unable to log in with the provided credentials</string> <!--TODO Get client id -->
+  <string name="authorization_value_format">Bearer %s</string>
+  <string name="sign_out">sign_out</string>
 </resources>

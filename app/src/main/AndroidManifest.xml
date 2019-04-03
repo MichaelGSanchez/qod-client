@@ -14,6 +14,7 @@
     android:theme="@style/AppTheme"
     android:usesCleartextTraffic="true">
     <activity android:name=".controller.MainActivity">
+
     </activity>
     <activity android:name=".controller.LoginActivity">
       <intent-filter>

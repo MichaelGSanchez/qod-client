@@ -12,11 +12,12 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 
 public interface QodService {
 
   @GET("quotes/random")
-  Call<Quote> get();
+  Call<Quote> get(@Header("Authorization") String formattedIdTokenString);
 
   class InstanceHolder {
 
@@ -43,7 +44,9 @@ public interface QodService {
     @Override
     protected Quote perform(Void... voids) throws TaskException {
       try {
-        Response<Quote> response = InstanceHolder.INSTANCE.get().execute();
+        String token = QodApplication.getInstance().getString(R.string.authorization_value_format,
+            GoogleSignInService.getInstance().getAccount().getIdToken());
+        Response<Quote> response = InstanceHolder.INSTANCE.get(token).execute();
         if (!response.isSuccessful()) {
           throw new TaskException();
         }
